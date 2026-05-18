@@ -1,0 +1,846 @@
+/* Базові скидання (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fff;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- HEADER --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo img { height: 30px; }
+.nav-links { display: flex; gap: 30px; font-size: 15px; font-weight: 500; }
+.header-actions { display: flex; align-items: center; gap: 20px; }
+.btn-text { font-size: 15px; font-weight: 500; }
+
+.btn-primary-header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-primary-header:hover { opacity: 0.8; }
+
+/* --- HERO SECTION --- */
+.hero {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 0 40px;
+}
+
+/* ГОЛОВНИЙ ФЛЕКС-КОНТЕЙНЕР: Текст з плашками зліва, Кнопка справа */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Центрує кнопку по вертикалі відносно тексту */
+    margin-bottom: 60px;
+}
+
+/* ЗАГОЛОВОК (Текст + Плашки) */
+.hero-title {
+    font-size: 56px; 
+    font-weight: 500; 
+    line-height: 1.5; /* Інтервал між рядками */
+    letter-spacing: -1px;
+    text-align: left; 
+    margin: 0;
+    max-width: 1000px; /* Ширина, щоб все влізло як треба */
+}
+
+.hero-title strong {
+    font-weight: 700; 
+}
+
+/* --- СТИЛІ ДЛЯ ПЛАШОК (Pill) --- */
+.pill {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    height: 49px; /* Точна висота з твого макета (48px) */
+    padding: 0 32px; /* Більший відступ по боках робить їх довшими */
+    border-radius: 50px;
+    font-size: 36px; 
+    font-weight: 400;
+    margin: 8px 6px; 
+    vertical-align: middle;
+}
+/* СТИЛІ ДЛЯ ІКОНОК (Магія приховування білого фону) */
+.pill-icon {
+    height: 30px; /* Задаємо жорстку висоту для іконки */
+    width: auto;
+    margin-right: 12px;
+    mix-blend-mode: multiply; /* ЦЯ ВЛАСТИВІСТЬ РОБИТЬ БІЛИЙ ФОН PNG ПРОЗОРИМ! */
+}
+
+/* Кольори та рамка */
+.pill-sales-border { 
+    border: 4px solid #000; 
+    padding: 0 20px; /* Перебиваємо довжину, роблячи sales коротшим за інші */
+}
+.pill-sales { background-color: #d1f2d6; }
+.pill-recruiting { background-color: #eaddff; }
+.pill-fundraising { background-color: #ffdbbb; }
+.pill-partnerships { background-color: #d1e4ff; }
+.pill-investing { background-color: #ffdbec; }
+
+/* Позиціонування великої кнопки Hero */
+.hero-button-wrapper {
+    flex-shrink: 0; /* Не дозволяє кнопці стискатися */
+}
+
+.btn-primary-hero {
+  background-color: #000;
+    color: #fff;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.btn-primary-hero:hover { opacity: 0.8; }
+
+/* Зображення дашборду */
+.hero-image-wrapper {
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ (Для мобілок) --- */
+@media (max-width: 1100px) {
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links { display: none; }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        text-align: center; 
+        max-width: 100%;
+    }
+    
+    .pill {
+        font-size: 24px;
+        padding: 4px 14px;
+    }
+
+    .btn-primary-hero {
+        margin-top: 20px;
+    }
+}
+.social-proof {
+    display: flex;
+    justify-content: center; /* Центруємо всі три блоки по горизонталі */
+    align-items: center;
+    gap: 80px; /* Відстань між трьома великими блоками */
+    margin: 40px auto 80px; /* Відступи зверху і знизу */
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+/* Окремий блок рейтингу */
+.proof-item {
+    display: flex;
+    align-items: center; /* Вирівнюємо велику цифру і текст по центру один відносно одного */
+    gap: 16px; /* Відстань між цифрою (4,8) та текстом праворуч */
+}
+
+/* Великі цифри (4,8 і 4,9) */
+.proof-score {
+    font-size: 52px; /* Великий розмір шрифту */
+    font-weight: 400;
+    line-height: 1; /* Прибираємо зайві відступи зверху/знизу шрифту */
+}
+
+/* Велика іконка галочки для третього блоку */
+.large-check {
+    height: 48px; /* Розмір підігнаний під висоту цифр */
+    width: auto;
+    display: block;
+}
+
+/* Права колонка: лого + назва (зверху) і зірки (знизу) */
+.proof-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Відстань між текстом "Chrome store" та зірочками */
+    align-items: flex-start;
+}
+
+/* Рядок з маленьким логотипом і назвою */
+.proof-source {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Відстань між маленькою іконкою і словом */
+    font-size: 18px; /* Розмір тексту назви компанії */
+    font-weight: 500;
+}
+
+/* Маленькі логотипи компаній (з твого макета видно, що висота десь 16px) */
+.source-icon {
+    height: 18px; 
+    width: auto;
+    display: block;
+}
+
+/* Картинка зірочок */
+.stars-icon {
+    height: 16px; /* Висота зірочок */
+    width: auto;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ РЕЙТИНГІВ --- */
+@media (max-width: 900px) {
+    .social-proof {
+        flex-direction: column; /* На мобільних ставимо один під одним */
+        gap: 40px;
+        align-items: flex-start;
+    }
+}
+/* --- СЕКЦІЯ ALL YOUR CRM NEEDS --- */
+.crm-needs-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 100px 0;
+    overflow: hidden; /* Щоб скелетони красиво йшли за край екрана */
+}
+
+.crm-needs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ЗАГОЛОВОК */
+.crm-needs-title {
+    font-size: 54px;
+    font-weight: 500;
+    color: #111111;
+    text-align: center;
+    letter-spacing: -1.5px;
+    margin-bottom: 40px;
+}
+
+/* Робимо CRM супер-жирним як на макеті */
+.crm-keyword-bold {
+    font-weight: 700;
+}
+
+/* МАТРИЦЯ ПЛАШОК */
+.badges-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Вертикальний відступ між рядами */
+    width: 100%;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.badges-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Горизонтальний відступ між кнопками */
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* СТИЛЬ РЕАЛЬНОЇ КНОПКИ-ПЛАШКИ */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 36px;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #18181b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.badge-pill:hover {
+    background: #fafafa;
+    border-color: #d4d4d8;
+}
+
+/* ІКОНКА ВСЕРЕДИНІ ПЛАШКИ */
+.badge-icon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+    display: block;
+}
+
+/* СТИЛІ ДЛЯ СІРИХ ЗАГЛУШОК (SKELETONS) ПО БОКАХ */
+.badge-skeleton {
+    display: inline-block;
+    height: 44px;
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    border-radius: 100px;
+    opacity: 0.8; /* Робимо їх напівпрозорими як у Figma */
+    pointer-events: none;
+}
+
+/* Різна ширина для заглушок, щоб створити хаотичність дизайну */
+.badge-skeleton.size-sm { width: 120px; }
+.badge-skeleton.size-md { width: 120px; }
+.badge-skeleton.size-lg { width: 160px; }
+
+/* КОНТЕЙНЕР ДЛЯ СКРІНШОТА ТАБЛИЦІ */
+.crm-preview-box {
+    width: 100%;
+    max-width: 1208px; /* Точна ширина з твого першого скріншота */
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.crm-preview-img {
+    width: 100%;
+    display: block;
+}
+
+/* АДАПТИВНІСТЬ ДЛЯ МОБІЛОК */
+@media (max-width: 900px) {
+    .crm-needs-title {
+        font-size: 36px;
+    }
+    .badges-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .badge-skeleton {
+        display: none; /* Ховаємо заглушки на малих екранах */
+    }
+
+}
+/* --- ЖОВТА СЕКЦІЯ --- */
+/* Базові скидання (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fff;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- HEADER --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo img { height: 30px; }
+.nav-links { display: flex; gap: 30px; font-size: 15px; font-weight: 500; }
+.header-actions { display: flex; align-items: center; gap: 20px; }
+.btn-text { font-size: 15px; font-weight: 500; }
+
+.btn-primary-header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-primary-header:hover { opacity: 0.8; }
+
+/* --- HERO SECTION --- */
+.hero {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 0 40px;
+}
+
+/* ГОЛОВНИЙ ФЛЕКС-КОНТЕЙНЕР: Текст з плашками зліва, Кнопка справа */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Центрує кнопку по вертикалі відносно тексту */
+    margin-bottom: 60px;
+}
+
+/* ЗАГОЛОВОК (Текст + Плашки) */
+.hero-title {
+    font-size: 56px; 
+    font-weight: 500; 
+    line-height: 1.5; /* Інтервал між рядками */
+    letter-spacing: -1px;
+    text-align: left; 
+    margin: 0;
+    max-width: 1000px; /* Ширина, щоб все влізло як треба */
+}
+
+.hero-title strong {
+    font-weight: 700; 
+}
+
+/* --- СТИЛІ ДЛЯ ПЛАШОК (Pill) --- */
+.pill {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    height: 49px; /* Точна висота з твого макета (48px) */
+    padding: 0 32px; /* Більший відступ по боках робить їх довшими */
+    border-radius: 50px;
+    font-size: 36px; 
+    font-weight: 400;
+    margin: 8px 6px; 
+    vertical-align: middle;
+}
+/* СТИЛІ ДЛЯ ІКОНОК (Магія приховування білого фону) */
+.pill-icon {
+    height: 30px; /* Задаємо жорстку висоту для іконки */
+    width: auto;
+    margin-right: 12px;
+    mix-blend-mode: multiply; /* ЦЯ ВЛАСТИВІСТЬ РОБИТЬ БІЛИЙ ФОН PNG ПРОЗОРИМ! */
+}
+
+/* Кольори та рамка */
+.pill-sales-border { 
+    border: 4px solid #000; 
+    padding: 0 20px; /* Перебиваємо довжину, роблячи sales коротшим за інші */
+}
+.pill-sales { background-color: #d1f2d6; }
+.pill-recruiting { background-color: #eaddff; }
+.pill-fundraising { background-color: #ffdbbb; }
+.pill-partnerships { background-color: #d1e4ff; }
+.pill-investing { background-color: #ffdbec; }
+
+/* Позиціонування великої кнопки Hero */
+.hero-button-wrapper {
+    flex-shrink: 0; /* Не дозволяє кнопці стискатися */
+}
+
+.btn-primary-hero {
+  background-color: #000;
+    color: #fff;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.btn-primary-hero:hover { opacity: 0.8; }
+
+/* Зображення дашборду */
+.hero-image-wrapper {
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ (Для мобілок) --- */
+@media (max-width: 1100px) {
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links { display: none; }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        text-align: center; 
+        max-width: 100%;
+    }
+    
+    .pill {
+        font-size: 24px;
+        padding: 4px 14px;
+    }
+
+    .btn-primary-hero {
+        margin-top: 20px;
+    }
+}
+.social-proof {
+    display: flex;
+    justify-content: center; /* Центруємо всі три блоки по горизонталі */
+    align-items: center;
+    gap: 80px; /* Відстань між трьома великими блоками */
+    margin: 40px auto 80px; /* Відступи зверху і знизу */
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+/* Окремий блок рейтингу */
+.proof-item {
+    display: flex;
+    align-items: center; /* Вирівнюємо велику цифру і текст по центру один відносно одного */
+    gap: 16px; /* Відстань між цифрою (4,8) та текстом праворуч */
+}
+
+/* Великі цифри (4,8 і 4,9) */
+.proof-score {
+    font-size: 52px; /* Великий розмір шрифту */
+    font-weight: 400;
+    line-height: 1; /* Прибираємо зайві відступи зверху/знизу шрифту */
+}
+
+/* Велика іконка галочки для третього блоку */
+.large-check {
+    height: 48px; /* Розмір підігнаний під висоту цифр */
+    width: auto;
+    display: block;
+}
+
+/* Права колонка: лого + назва (зверху) і зірки (знизу) */
+.proof-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Відстань між текстом "Chrome store" та зірочками */
+    align-items: flex-start;
+}
+
+/* Рядок з маленьким логотипом і назвою */
+.proof-source {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Відстань між маленькою іконкою і словом */
+    font-size: 18px; /* Розмір тексту назви компанії */
+    font-weight: 500;
+}
+
+/* Маленькі логотипи компаній (з твого макета видно, що висота десь 16px) */
+.source-icon {
+    height: 18px; 
+    width: auto;
+    display: block;
+}
+
+/* Картинка зірочок */
+.stars-icon {
+    height: 16px; /* Висота зірочок */
+    width: auto;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ РЕЙТИНГІВ --- */
+@media (max-width: 900px) {
+    .social-proof {
+        flex-direction: column; /* На мобільних ставимо один під одним */
+        gap: 40px;
+        align-items: flex-start;
+    }
+}
+/* --- СЕКЦІЯ ALL YOUR CRM NEEDS --- */
+.crm-needs-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 100px 0;
+    overflow: hidden; /* Щоб скелетони красиво йшли за край екрана */
+}
+
+.crm-needs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ЗАГОЛОВОК */
+.crm-needs-title {
+    font-size: 54px;
+    font-weight: 500;
+    color: #111111;
+    text-align: center;
+    letter-spacing: -1.5px;
+    margin-bottom: 40px;
+}
+
+/* Робимо CRM супер-жирним як на макеті */
+.crm-keyword-bold {
+    font-weight: 700;
+}
+
+/* МАТРИЦЯ ПЛАШОК */
+.badges-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Вертикальний відступ між рядами */
+    width: 100%;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.badges-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Горизонтальний відступ між кнопками */
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* СТИЛЬ РЕАЛЬНОЇ КНОПКИ-ПЛАШКИ */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 36px;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #18181b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.badge-pill:hover {
+    background: #fafafa;
+    border-color: #d4d4d8;
+}
+
+/* ІКОНКА ВСЕРЕДИНІ ПЛАШКИ */
+.badge-icon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+    display: block;
+}
+
+/* СТИЛІ ДЛЯ СІРИХ ЗАГЛУШОК (SKELETONS) ПО БОКАХ */
+.badge-skeleton {
+    display: inline-block;
+    height: 44px;
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    border-radius: 100px;
+    opacity: 0.8; /* Робимо їх напівпрозорими як у Figma */
+    pointer-events: none;
+}
+
+/* Різна ширина для заглушок, щоб створити хаотичність дизайну */
+.badge-skeleton.size-sm { width: 120px; }
+.badge-skeleton.size-md { width: 120px; }
+.badge-skeleton.size-lg { width: 160px; }
+
+/* КОНТЕЙНЕР ДЛЯ СКРІНШОТА ТАБЛИЦІ */
+.crm-preview-box {
+    width: 100%;
+    max-width: 1208px; /* Точна ширина з твого першого скріншота */
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.crm-preview-img {
+    width: 100%;
+    display: block;
+}
+
+/* АДАПТИВНІСТЬ ДЛЯ МОБІЛОК */
+@media (max-width: 900px) {
+    .crm-needs-title {
+        font-size: 36px;
+    }
+    .badges-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .badge-skeleton {
+        display: none; /* Ховаємо заглушки на малих екранах */
+    }
+
+}
+/* --- НОВА ЖОВТА СЕКЦІЯ --- */
+.contact-section.yellow-background {
+    background-color: #FFF8BB; /* Колір фону */
+    padding: 120px 0 0 0; /* ЗНИЗУ 0, щоб фотка стала рівно на дно! */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative; /* База для абсолютної картинки */
+    min-height: 680px; /* Задає висоту секції під велику картинку */
+    display: flex;
+    align-items: center; /* Текст центрується по вертикалі */
+    overflow: hidden; /* Обрізає все, що вилазить за краї */
+}
+
+/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
+.contact-grid {
+    width: 100%;
+    max-width: 1320px; /* Стандартна сітка */
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10; /* Текст ПОВЕРХ картинки */
+}
+
+/* ЛІВИЙ БЛОК З ТЕКСТОМ */
+.contact-text-block {
+    width: 100%;
+    max-width: 650px; /* Ширина, щоб текст трохи налізав на білий поп-ап з фотки */
+}
+
+/* ЗАГОЛОВОК (1 РЯДОК) */
+.contact-heading {
+    font-size: 56px !important;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: #111111;
+    margin: 0 0 24px 0;
+    white-space: nowrap !important; /* ЗАЛІЗОБЕТОННО 1 РЯДОК */
+}
+
+/* ОПИС */
+.contact-description {
+    font-size: 20px;
+    line-height: 1.45;
+    color: #111111;
+    margin: 0 0 36px 0;
+}
+
+/* КНОПКА */
+.contact-btn-sync {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    border: 1px solid #111111;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.contact-btn-sync:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- МАГІЯ: КАРТИНКА В ПРАВОМУ НИЖНЬОМУ КУТКУ --- */
+.contact-image-wrap {
+    position: absolute;
+    right: 0; /* Притиснута до правого краю */
+    bottom: 0; /* Притиснута до низу секції */
+    width: 62vw; /* Розтягується в залежності від розміру монітора */
+    max-width: 950px; /* Обмеження, щоб не стала гігантською */
+    z-index: 1; /* ПІД текстом */
+    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.contact-ui-image {
+    width: 100%;
+    display: block;
+    object-position: bottom right; /* Страхує, щоб картинка не з'їжджала */
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛОК --- */
+@media (max-width: 1024px) {
+    .contact-section.yellow-background {
+        padding: 60px 0 0 0;
+        display: block;
+        min-height: auto;
+    }
+    .contact-heading {
+        white-space: normal !important; /* На планшеті дозволяємо перенос */
+        font-size: 42px !important;
+    }
+    .contact-text-block {
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .contact-image-wrap {
+        position: relative; /* На мобілках ставимо під текст */
+        width: 100%;
+        max-width: 100%;
+    }
+}
