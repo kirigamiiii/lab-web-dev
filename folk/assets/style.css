@@ -129,7 +129,7 @@ a {
     width: 100%;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     border-radius: 12px;
-    overflow: hidden;
+   
 }
 
 .hero-image {
@@ -497,7 +497,7 @@ a {
     width: 100%;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     border-radius: 12px;
-    overflow: hidden;
+    
 }
 
 .hero-image {
@@ -612,7 +612,7 @@ a {
     width: 100%;
     background-color: #ffffff;
     padding: 100px 0;
-    overflow: hidden; /* Щоб скелетони красиво йшли за край екрана */
+     /* Щоб скелетони красиво йшли за край екрана */
 }
 
 .crm-needs-container {
@@ -733,59 +733,646 @@ a {
     }
 
 }
-/* --- НОВА ЖОВТА СЕКЦІЯ --- */
-.contact-section.yellow-background {
-    background-color: #FFF8BB; /* Колір фону */
-    padding: 120px 0 0 0; /* ЗНИЗУ 0, щоб фотка стала рівно на дно! */
+/* --- YELLOW SECTION --- */
+.yellow-section {
+    background-color: #FFF8BB;
+    width: 100%;
+    position: relative; /* Щоб картинка знала, де низ і право */
+    padding: 80px 0 0 0; /* МАГІЯ ТУТ: відступ лише зверху, текст відразу під ним */
+    min-height: 640px; /* Тримає висоту секції під фото */
+    display: block; /* Прибрали flex-центрування, тепер текст йде чітко зверху */
+     /* Ховає зайві краї картинки */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    position: relative; /* База для абсолютної картинки */
-    min-height: 680px; /* Задає висоту секції під велику картинку */
-    display: flex;
-    align-items: center; /* Текст центрується по вертикалі */
-    overflow: hidden; /* Обрізає все, що вилазить за краї */
+    box-sizing: border-box;
 }
 
-/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
-.contact-grid {
+.yellow-container {
     width: 100%;
-    max-width: 1320px; /* Стандартна сітка */
+    max-width: 1320px; 
     margin: 0 auto;
     padding: 0 40px;
     position: relative;
     z-index: 10; /* Текст ПОВЕРХ картинки */
 }
 
-/* ЛІВИЙ БЛОК З ТЕКСТОМ */
-.contact-text-block {
-    width: 100%;
-    max-width: 650px; /* Ширина, щоб текст трохи налізав на білий поп-ап з фотки */
+.yellow-text-content {
+    max-width: 900px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* ЗАГОЛОВОК (1 РЯДОК) */
-.contact-heading {
-    font-size: 56px !important;
-    font-weight: 700;
+.yellow-heading {
+    font-size: 68px;
+    font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -1.5px;
+    letter-spacing: 0px;
     color: #111111;
     margin: 0 0 24px 0;
-    white-space: nowrap !important; /* ЗАЛІЗОБЕТОННО 1 РЯДОК */
+    white-space: nowrap; /* Строго 1 рядок */
 }
 
 /* ОПИС */
-.contact-description {
+.yellow-paragraph {
     font-size: 20px;
     line-height: 1.45;
     color: #111111;
-    margin: 0 0 36px 0;
+    margin: 0 0 32px 0;
 }
 
 /* КНОПКА */
-.contact-btn-sync {
+.yellow-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 26px;
+    padding: 10px 24px;
+    border: 1px solid #111111;
+    border-radius: 100px; /* Овальна форма */
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.yellow-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- КАРТИНКА ПРИБИТА ДО ПРАВОГО НИЖНЬОГО КУТА --- */
+.yellow-image-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; /* Чітко в самий низ */
+    width: 65vw; 
+    max-width: 950px; 
+    z-index: 1; /* Під текстом */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none; 
+}
+
+.yellow-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 1100px) {
+    .yellow-heading {
+        white-space: normal; 
+        font-size: 42px;
+    }
+    .yellow-section {
+        padding: 60px 0 0 0;
+    }
+    .yellow-container {
+        margin-bottom: 40px;
+    }
+    .yellow-text-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .yellow-image-wrapper {
+        position: relative; 
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* --- PINK SECTION --- */
+.pink-section {
+    background-color: #FCEBE0; /* Точний персиково-рожевий відтінок з макета */
+    width: 100%;
+    position: relative; /* База для позиціонування картинки в кутку */
+    padding: 100px 0 0 0; /* Відступ зверху, знизу 0 — щоб картинка стала рівно на дно */
+    min-height: 640px; /* Тримає висоту секції */
+    display: block; /* Текст починається природно зверху */
+    /* Обрізає зайві краї картинки */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
+.pink-container {
+    width: 100%;
+    max-width: 1320px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10; /* Текст ПОВЕРХ картинки */
+    box-sizing: border-box;
+}
+
+.pink-text-content {
+    max-width: 800px; /* Достатня ширина для довгого заголовка */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ЗАГОЛОВОК */
+.pink-heading {
+    font-size: 62px;
+    font-weight: 500; /* На макеті шрифт виглядає трохи тоншим (medium) */
+    line-height: 1.1;
+    letter-spacing: 0px; 
+    color: #111111; 
+    margin: 0 0 24px 0;
+    white-space: nowrap; /* Строго в один рядок */
+}
+
+/* ОПИС */
+.pink-paragraph {
+    font-size: 22px;
+    line-height: 1.45;
+    color: #111111; 
+    margin: 0 0 24px 0; /* Менший відступ до іконок */
+}
+
+/* --- КАРТИНКА З ЛОГОТИПАМИ --- */
+.pink-logotypes-wrap {
+    width: 100%;
+    max-width: 300px; /* Смужка з іконками невелика */
+    margin: 0 0 24px 0; /* Відступ до кнопки */
+    display: flex;
+    align-items: center;
+}
+
+.pink-logotypes-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* КНОПКА */
+.pink-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid #111111; 
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111; 
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.pink-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* --- КАРТИНКА ПРИБИТА ДО ПРАВОГО НИЖНЬОГО КУТА --- */
+.pink-image-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    width: 62vw; 
+    max-width: 950px; 
+    z-index: 1; /* Під текстом */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none; 
+}
+
+.pink-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 1100px) {
+    .pink-heading {
+        white-space: normal; 
+        font-size: 46px;
+    }
+    .pink-section {
+        padding: 60px 0 0 0;
+    }
+    .pink-container {
+        margin-bottom: 40px;
+    }
+    .pink-text-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .pink-image-wrapper {
+        position: relative; 
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* --- PURPLE SECTION --- */
+.purple-section {
+    background-color: #F9F1FE; /* Ніжний лавандовий/світло-фіолетовый колір фону */
+    width: 100%;
+    position: relative; /* База для позиціонування картинки в кутку */
+    padding: 120px 0 0 0; /* Зверху відступ, знизу 0 — щоб картинка стала рівно на дно */
+    min-height: 640px; /* Тримає висоту секції */
+    display: block; /* Текст починається природно зверху */
+     /* Обрізає зайві краї картинки, якщо вони є */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
+.purple-container {
+    width: 100%;
+    max-width: 1320px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10; /* Текст ПОВЕРХ картинки */
+    box-sizing: border-box;
+}
+
+.purple-text-content {
+    max-width: 800px; /* Достатня ширина для заголовка */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ЗАГОЛОВОК */
+.purple-heading {
+    font-size: 62px;
+    font-weight: 500; /* Згідно з макетом, шрифт не надто жирний */
+    line-height: 0;
+    letter-spacing: 0px; 
+    color: #111111; 
+    margin: 0 0 64px 0;
+    white-space: nowrap; /* Строго в один рядок */
+}
+
+/* ОПИС */
+.purple-paragraph {
+    font-size: 22px;
+    line-height: 1,45;
+    color: #111111; 
+    margin: 0 0 40px 0; /* Відступ до кнопки */
+}
+
+/* КНОПКА */
+.purple-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid #111111; 
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111; 
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.purple-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* --- КАРТИНКА ПРИБИТА ДО ПРАВОГО НИЖНЬОГО КУТА --- */
+.purple-image-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    width: 62vw; /* Займає більшу частину екрана справа */
+    max-width: 950px; 
+    z-index: 1; /* Під текстом */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none; 
+}
+
+.purple-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 1100px) {
+    .purple-heading {
+        white-space: normal; /* Дозволяємо перенос на планшетах */
+        font-size: 46px;
+        line-height: 1.2;
+    }
+    .purple-section {
+        padding: 60px 0 0 0;
+    }
+    .purple-container {
+        margin-bottom: 40px;
+    }
+    .purple-text-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .purple-image-wrapper {
+        position: relative; 
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* --- АДАПТИВНІСТЬ --- */
+
+/* --- MAGENTA SECTION --- */
+.magenta-section {
+    background-color: #FCE5F3; /* Ніжний світло-маджентовий колір фону */
+    width: 100%;
+    position: relative; /* База для позиціонування картинки в кутку */
+    padding: 120px 0 0 0; /* Зверху відступ, знизу 0 — щоб фотка сіла на дно */
+    min-height: 640px; /* Тримає висоту секції */
+    display: block; /* Текст починається природно зверху */
+    /* Обрізає зайві краї картинки */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
+.magenta-container {
+    width: 100%;
+    max-width: 1320px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10; /* Текст ПОВЕРХ картинки */
+    box-sizing: border-box;
+}
+
+.magenta-text-content {
+    max-width: 800px; /* Достатня ширина для заголовка */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ЗАГОЛОВОК */
+.magenta-heading {
+    font-size: 62px;
+    font-weight: 500;
+    line-height: 0;
+    letter-spacing: 0px; 
+    color: #111111; 
+    margin: 0 0 64px 0;
+    white-space: nowrap; /* Строго в один рядок */
+}
+
+/* ОПИС */
+.magenta-paragraph {
+    font-size: 22px;
+    line-height: 1.45;
+    color: #111111; 
+    margin: 0 0 32px 0; /* Відступ до кнопки */
+}
+
+/* КНОПКА */
+.magenta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid #111111; 
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111; 
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.magenta-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* --- КАРТИНКА ПРИБИТА ДО ПРАВОГО НИЖНЬОГО КУТА --- */
+.magenta-image-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    width: 62vw; /* Займає більшу частину екрана справа */
+    max-width: 950px; 
+    z-index: 1; /* Під текстом */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none; 
+}
+
+.magenta-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 1100px) {
+    .magenta-heading {
+        white-space: normal; /* Дозволяємо перенос на планшетах */
+        font-size: 46px;
+        line-height: 1.2;
+    }
+    .magenta-section {
+        padding: 60px 0 0 0;
+    }
+    .magenta-container {
+        margin-bottom: 40px;
+    }
+    .magenta-text-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .magenta-image-wrapper {
+        position: relative; 
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* --- SKY BLUE SECTION --- */
+.sky-blue-section {
+    background-color: #E6F0FA; /* Ніжний світло-блакитний колір фону */
+    width: 100%;
+    position: relative; /* База для позиціонування картинки в кутку */
+    padding: 120px 0 0 0; /* Зверху відступ, знизу 0 — щоб фотка сіла на дно */
+    min-height: 640px; /* Тримає висоту секції */
+    display: block; /* Текст починається природно зверху */
+     /* Обрізає зайві краї картинки */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ТЕКСТУ */
+.sky-blue-container {
+    width: 100%;
+    max-width: 1320px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10; /* Текст ПОВЕРХ картинки */
+    box-sizing: border-box;
+}
+
+.sky-blue-text-content {
+    max-width: 800px; /* Достатня ширина для заголовка */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+}
+
+/* ЗАГОЛОВОК */
+.sky-blue-heading {
+    font-size: 62px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 0px; 
+    color: #111111; 
+    margin: 0 0 24px 0;
+    white-space: nowrap; /* Строго в один рядок */
+}
+
+/* ОПИС */
+.sky-blue-paragraph {
+    font-size: 22px;
+    line-height: 1.45;
+    color: #111111; 
+    margin: 0 0 40px 0; /* Відступ до кнопки */
+}
+
+/* КНОПКА */
+.sky-blue-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid #111111; 
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111; 
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.sky-blue-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* --- КАРТИНКА ПРИБИТА ДО ПРАВОГО НИЖНЬОГО КУТА --- */
+.sky-blue-image-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    width: 80vw; /* Займає більшу частину екрана справа */
+    max-width: 960px; 
+    z-index: 1; /* Під текстом */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none; 
+}
+
+.sky-blue-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 1100px) {
+    .sky-blue-heading {
+        white-space: normal; /* Дозволяємо перенос на планшетах */
+        font-size: 46px;
+    }
+    .sky-blue-section {
+        padding: 60px 0 0 0;
+    }
+    .sky-blue-container {
+        margin-bottom: 40px;
+    }
+    .sky-blue-text-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .sky-blue-image-wrapper {
+        position: relative; 
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* --- WORKFLOWS SECTION --- */
+.workflows-section {
+    background-color: #FFFFFF; /* Чистий білий фон */
+    width: 100%;
+    padding: 120px 0; /* Рівномірні відступи зверху і знизу */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* КОНТЕЙНЕР (Вирівнювання по центру) */
+.workflows-container {
+    width: 100%;
+    max-width: 1000px; /* Звужений контейнер, щоб усе трималося купи в центрі */
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column; /* Елементи йдуть зверху вниз */
+    align-items: center; /* Центруємо все по горизонталі */
+    text-align: center; /* Центруємо сам текст */
+    box-sizing: border-box;
+}
+
+/* ВЕРХНІЙ ПІДПИС */
+.workflows-label {
+    font-size: 16px;
+    color: #888888; /* Сірий колір з макета */
+    margin: 0 0 36px 0; /* Відступ до заголовка */
+}
+
+/* ЗАГОЛОВОК */
+.workflows-heading {
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 0px;
+    color: #111111;
+    margin: 0 0 50px 0; /* Великий відступ до фотографії */
+}
+
+/* --- КАРТИНКА З ЛОГОТИПАМИ --- */
+.workflows-image-wrapper {
+    width: 100%;
+    max-width: 900px; /* Дозволяє картинці бути великою, але не на весь екран */
+    margin: 0 0 50px 0; /* Відступ вниз до тексту */
+}
+
+.workflows-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ТЕКСТ ПІД ФОТО */
+.workflows-subtext {
+    font-size: 20px;
+    color: #111111;
+    margin: 0 0 30px 0; /* Відступ до кнопки */
+}
+
+/* КНОПКА */
+.workflows-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 36px;
     border: 1px solid #111111;
     border-radius: 100px;
     font-size: 16px;
@@ -795,52 +1382,427 @@ a {
     transition: background-color 0.2s ease;
 }
 
-.contact-btn-sync:hover {
+.workflows-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* --- МАГІЯ: КАРТИНКА В ПРАВОМУ НИЖНЬОМУ КУТКУ --- */
-.contact-image-wrap {
-    position: absolute;
-    right: 0; /* Притиснута до правого краю */
-    bottom: 0; /* Притиснута до низу секції */
-    width: 62vw; /* Розтягується в залежності від розміру монітора */
-    max-width: 950px; /* Обмеження, щоб не стала гігантською */
-    z-index: 1; /* ПІД текстом */
-    pointer-events: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 768px) {
+    .workflows-section {
+        padding: 80px 0;
+    }
+    .workflows-heading {
+        font-size: 42px;
+    }
+    .workflows-image-wrapper {
+        margin: 0 0 40px 0;
+    }
 }
-
-.contact-ui-image {
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-section {
+    background-color: #FFFFFF;
     width: 100%;
-    display: block;
-    object-position: bottom right; /* Страхує, щоб картинка не з'їжджала */
+    padding: 100px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
 }
 
-/* --- АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛОК --- */
-@media (max-width: 1024px) {
-    .contact-section.yellow-background {
-        padding: 60px 0 0 0;
-        display: block;
-        min-height: auto;
+.testimonials-container {
+    width: 100%;
+    max-width: 1200px; /* Трохи вужче, щоб сітка виглядала акуратно */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ЗАГОЛОВОК */
+.testimonials-title {
+    font-size: 56px;
+    font-weight: 500;
+    text-align: center;
+    color: #111111;
+    margin: 0 0 60px 0;
+}
+
+/* --- MASONRY СІТКА --- */
+.testimonials-grid {
+    display: flex;
+    gap: 24px; /* Відстань між колонками */
+    align-items: flex-start; /* Щоб картки не розтягувалися по висоті */
+    width: 100%;
+}
+.testimonials-col {
+    flex: 1; /* Всі 3 колонки будуть однакової ширини */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Відстань між картками по вертикалі */
+}
+
+/* --- ДИЗАЙН КАРТКИ --- */
+.testimonial-card {
+    background-color: #FFFFFF;
+    border: 1px solid #111111; /* Чітка темна рамка */
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* ШАПКА КАРТКИ (Аватар + Текст) */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+    margin: 0 0 4px 0;
+}
+
+/* Інфо про компанію (в один рядок) */
+.testimonial-company-wrap {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #000000; /* Трохи світліший сірий */
+}
+
+.testimonial-company-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    border-radius: 2px;
+}
+
+.testimonial-dot {
+    margin: 0 6px;
+    color: #CCCCCC;
+}
+
+/* ТЕКСТ ВІДГУКУ */
+.testimonial-quote {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #111111;
+    margin: 0 0 20px 0;
+}
+
+/* --- ТЕГИ (Пігулки) --- */
+.testimonial-tags {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє тегам переноситись, якщо їх багато */
+    gap: 8px; /* Відстань між тегами */
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111111;
+}
+
+.tag-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+}
+
+/* Кольори тегів */
+.tag-green { background-color: #BEE5CB; }
+.tag-yellow { background-color: #FCE883; }
+.tag-orange { background-color: #FCD5B5; } /* Персиковий/помаранчевий */
+.tag-purple { background-color: #E6D6F5; } /* Світло-фіолетовий */
+.tag-blue { background-color: #C9D9F9; }
+.tag-pink { background-color: #F8CDE2; } /* Ніжно-рожевий для Investing */
+.tag-light-blue { background-color: #B2D4F5; } /* Світло-блакитний для Community */
+/* --- АДАПТИВНІСТЬ СІТКИ --- */
+@media (max-width: 992px) {
+    .testimonials-grid {
+        flex-wrap: wrap; /* На планшетах переносимо колонки */
     }
-    .contact-heading {
-        white-space: normal !important; /* На планшеті дозволяємо перенос */
-        font-size: 42px !important;
+    .testimonials-col {
+        min-width: calc(50% - 12px); /* 2 колонки на планшеті */
     }
-    .contact-text-block {
-        max-width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 40px;
+}
+
+@media (max-width: 650px) {
+    .testimonials-col {
+        min-width: 100%; /* 1 колонка на телефоні */
     }
-    .contact-image-wrap {
-        position: relative; /* На мобілках ставимо під текст */
+}
+/* --- FOOTER MAIN --- */
+.site-footer {
+    background-color: #000000; /* Глибокий чорний фон */
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #FFFFFF; /* Білий текст за замовчуванням */
+}
+
+/* Спільний контейнер для обох частин футера */
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* --- HIGHER FOOTER --- */
+.higher-footer {
+    padding: 100px 0; /* Великі відступи зверху і знизу */
+    border-bottom: 1px solid #333333; /* ОСЬ ЦЯ ЛІНІЯ, що ділить футер */
+}
+
+.higher-footer .footer-container {
+    display: flex;
+    justify-content: space-between; /* Розкидає текст вліво, кнопки вправо */
+    align-items: center; /* Центрує їх по вертикалі */
+    flex-wrap: wrap; 
+    gap: 40px;
+}
+
+/* ТЕКСТ ВЕРХНЬОГО ФУТЕРА */
+.higher-footer-text h2 {
+    font-size: 52px;
+    font-weight: 400; /* Звичайний шрифт для другої частини речення */
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.higher-footer-text h2 strong {
+    font-weight: 600; /* Жирний акцент на "All-in-one CRM" */
+}
+
+/* КНОПКИ ФУТЕРА */
+.higher-footer-buttons {
+    display: flex;
+    gap: 16px; /* Відстань між кнопками */
+}
+
+/* Загальний стиль для обох кнопок */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 100px; /* Овальна форма */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Біла кнопка */
+.btn-primary {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+/* Чорна кнопка з білою рамкою */
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ HIGHER FOOTER --- */
+@media (max-width: 992px) {
+    .higher-footer-text h2 {
+        font-size: 42px;
+    }
+    .higher-footer .footer-container {
+        flex-direction: column; /* На планшетах текст і кнопки стають в стовпчик */
+        align-items: flex-start;
+    }
+}
+@media (max-width: 576px) {
+    .higher-footer-buttons {
+        flex-direction: column; /* На мобілках кнопки стають одна під одною */
         width: 100%;
-        max-width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}
+
+
+.lower-footer { 
+    background-color: #000000;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    width : 100%;
+
+}
+
+.lower-footer .footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* --- ІДЕАЛЬНА СІТКА ДЛЯ СПИСКІВ --- */
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 60px 40px 0 40px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+}
+
+/* ЗАГОЛОВКИ СТОВПЧИКІВ */
+.footer-col h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0 0 30px 0;
+    letter-spacing: 0.5px;
+}
+
+/* СПИСКИ ПОСИЛАНЬ */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 13.5px;
+    color: #FFFFFF;
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+}
+
+/* ПЕРША КОЛОНКА (ЛОГОТИП ТА СОЦМЕРЕЖІ) */
+.col-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer-logo-img {
+    height: 22px;
+    width: auto;
+    display: block;
+}
+
+.footer-social-links li {
+    margin-bottom: 8px;
+}
+
+.footer-social-links li a {
+    font-size: 13.5px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-social-links li a:hover {
+    opacity: 1;
+}
+
+/* --- КАРТИНКА З ХМАРОЮ ТЕГІВ (РОЗТЯГНУТА НА 100vw) --- */
+.footer-vector-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 60px; /* Відступ вниз від списків до картинки */
+    display: flex;
+    justify-content: center;
+   
+    padding: 0;
+}
+
+.footer-vector-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+@media (max-width: 900px) {
+    .footer-grid {
+        flex-wrap: wrap; /* Залізобетонно дозволяємо перенос */
+        gap: 40px 10px; /* 40px між рядами зверху-вниз, 10px між стовпчиками */
+    }
+    
+    .footer-col {
+        /* Примусово робимо по 3 стовпчики в ряд */
+        flex: 0 0 calc(33.333% - 10px); 
+    }
+    
+    .col-brand {
+        /* Логотип і соцмережі займають весь перший ряд (100%) */
+        flex: 0 0 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* --- АДАПТИВНІСТЬ ФУТЕРА (Мобільні телефони - до 600px) --- */
+@media (max-width: 600px) {
+    .footer-grid {
+        padding: 0 20px; /* Менші відступи по краях екрана */
+    }
+    
+    .footer-col {
+        /* Примусово робимо по 2 стовпчики в ряд на телефонах */
+        flex: 0 0 calc(50% - 10px); 
     }
 }
